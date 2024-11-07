@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TwimpCardComponent } from '../../shared/twimp-card/twimp-card.component';
+import { TweempListComponent } from '../../shared/tweemp-list/tweemp-list.component';
 
 @Component({
   selector: 'tweempus-dashboard',
   standalone: true,
-  imports: [TwimpCardComponent],
+  imports: [TweempListComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

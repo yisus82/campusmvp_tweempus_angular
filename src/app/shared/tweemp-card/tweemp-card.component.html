@@ -1,0 +1,14 @@
+<section>
+  <div class="header">
+    <img [src]="tweemp.author.image" alt="Tweemp author avatar">
+    <a [href]="tweemp.author.url">by {{tweemp.author.fullName}}</a>
+    <div class="date">Published on {{tweemp.timestamp}}</div>
+  </div>
+  <div class="content">
+    {{tweemp.content}}
+  </div>
+  <hr class="line">
+  <div class="fav">
+    <button class="icon icon-selected">🩷</button>
+  </div>
+</section>

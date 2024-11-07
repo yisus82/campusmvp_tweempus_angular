@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TwimpCardComponent } from './twimp-card.component';
+import { TweempListComponent } from './tweemp-list.component';
 
-describe('TwimpCardComponent', () => {
-  let component: TwimpCardComponent;
-  let fixture: ComponentFixture<TwimpCardComponent>;
+describe('TweempListComponent', () => {
+  let component: TweempListComponent;
+  let fixture: ComponentFixture<TweempListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TwimpCardComponent]
+      imports: [TweempListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TwimpCardComponent);
+    fixture = TestBed.createComponent(TweempListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
