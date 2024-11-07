@@ -22,16 +22,16 @@ export class TweempListComponent {
   constructor() {
     this.authors.push(new AuthorModel('1'));
     this.tweemps.push(
-      new TweempModel('1', this.authors[0], this.text, '2021-01-01')
+      new TweempModel('1', this.authors[0], this.text, new Date())
     );
     this.tweemps.push(
-      new TweempModel('2', this.authors[0], this.text, '2021-01-01')
+      new TweempModel('2', this.authors[0], this.text, new Date())
     );
     this.tweemps.push(
-      new TweempModel('3', this.authors[0], this.text, '2021-01-01')
+      new TweempModel('3', this.authors[0], this.text, new Date())
     );
     this.tweemps.push(
-      new TweempModel('4', this.authors[0], this.text, '2021-01-01')
+      new TweempModel('4', this.authors[0], this.text, new Date())
     );
   }
 }

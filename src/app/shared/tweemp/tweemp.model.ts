@@ -5,14 +5,14 @@ export class TweempModel {
   private _url: string;
   private _author: AuthorModel;
   private _content: string;
-  private _timestamp: string;
+  private _timestamp: Date;
   private _favorite: boolean;
 
   constructor(
     id: string,
     author: AuthorModel,
     content: string,
-    timestamp: string
+    timestamp: Date
   ) {
     this._id = id;
     this._url = `/tweemp/${id}`;
@@ -54,11 +54,11 @@ export class TweempModel {
     this._content = content;
   }
 
-  get timestamp(): string {
+  get timestamp(): Date {
     return this._timestamp;
   }
 
-  set timestamp(timestamp: string) {
+  set timestamp(timestamp: Date) {
     this._timestamp = timestamp;
   }
 

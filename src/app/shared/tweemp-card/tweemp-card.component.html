@@ -2,7 +2,7 @@
   <div class="header">
     <img [src]="tweemp.author.image" alt="Tweemp author avatar">
     <a [href]="tweemp.author.url">by {{tweemp.author.fullName}}</a>
-    <div class="date">Published on {{tweemp.timestamp}}</div>
+    <div class="date">Published at {{tweemp.timestamp | date: 'dd/MM/yyyy HH:mm'}}</div>
   </div>
   <div class="content">
     {{tweemp.content}}
