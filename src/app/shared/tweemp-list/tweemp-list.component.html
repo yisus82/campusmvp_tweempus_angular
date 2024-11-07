@@ -1,6 +1,10 @@
-<section>
-  <tweempus-tweemp-card [tweemp]="tweemps[0]"></tweempus-tweemp-card>
-  <tweempus-tweemp-card [tweemp]="tweemps[1]"></tweempus-tweemp-card>
-  <tweempus-tweemp-card [tweemp]="tweemps[2]"></tweempus-tweemp-card>
-  <tweempus-tweemp-card [tweemp]="tweemps[3]"></tweempus-tweemp-card>
-</section>
+<main>
+  <div class="tweemps">
+    @for (tweemp of tweemps; track tweemp.id) {
+    <tweempus-tweemp-card [tweemp]="tweemp"></tweempus-tweemp-card>
+    }
+    @empty {
+    <p>No tweemps to show</p>
+    }
+  </div>
+</main>
