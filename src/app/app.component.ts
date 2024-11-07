@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { HeaderComponent } from './core/header/header.component';
 import { NavComponent } from './core/nav/nav.component';
+import { DashboardComponent } from './routes/dashboard/dashboard.component';
 
 @Component({
   selector: 'tweempus-root',

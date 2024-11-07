@@ -3,7 +3,7 @@ section {
   color: #666;
   position: relative;
   border-radius: 15px;
-  margin: 0 1em 1em 1em;
+  margin: 0 auto 1em auto;
   box-sizing: border-box;
   max-width: 768px;
 }
@@ -79,18 +79,4 @@ section {
 .icon-selected:active {
   font-size: 30px;
   transition: .35s ease-in-out
-}
-
-
-/* RESPONSIVE
-   ========================================================================= */
-
-
-/* Moviles en horizontal o tablets en vertical
-   ------------------------------------------------------------------------- */
-
-@media (min-width: 768px) {
-  section {
-    margin: 0 auto 1em auto;
-  }
 }
