@@ -1,0 +1,30 @@
+main {
+  width: 90%;
+  margin: 1em auto;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.35);
+  padding: 3em;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  max-width: 150px;
+}
+
+button {
+  width: 30%;
+  padding: 1em;
+  margin: 1em 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #d94f5c;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+}

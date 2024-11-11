@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'tweempus-nav',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  styleUrl: './nav.component.css',
 })
-export class NavComponent {
-
-}
+export class NavComponent {}

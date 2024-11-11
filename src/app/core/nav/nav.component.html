@@ -1,10 +1,10 @@
 <nav>
   <ul>
-    <li class="active">
-      <a href="#">Tweemps</a>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/">Tweemps</a>
     </li>
-    <li>
-      <a href="#">Profile</a>
+    <li routerLinkActive="active">
+      <a routerLink="/profile">Profile</a>
     </li>
   </ul>
 </nav>
