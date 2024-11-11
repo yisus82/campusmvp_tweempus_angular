@@ -1,0 +1,34 @@
+{
+  "authors": [
+    {
+      "id": "330e902d-6ed9-45de-b654-d3e4591c7538",
+      "email": "johndoe@gmail.com",
+      "password": "password1",
+      "fullName": "John Doe",
+      "image": "https://randomuser.me/api/portraits/men/1.jpg",
+      "favorites": ["c6646dc8-4920-474c-9b8f-957d5079f3a6"]
+    },
+    {
+      "id": "bd60eacd-26b4-4464-bf92-74594cae39bd",
+      "email": "janesmith@gmail.com",
+      "password": "password2",
+      "fullName": "Jane Smith",
+      "image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "favorites": ["c6a35b6c-281e-46ee-827f-b55f908074de"]
+    }
+  ],
+  "tweemps": [
+    {
+      "id": "c6a35b6c-281e-46ee-827f-b55f908074de",
+      "author": "330e902d-6ed9-45de-b654-d3e4591c7538",
+      "content": "This is a tweemp",
+      "timestamp": "2024-01-01 12:00:00"
+    },
+    {
+      "id": "c6646dc8-4920-474c-9b8f-957d5079f3a6",
+      "author": "bd60eacd-26b4-4464-bf92-74594cae39bd",
+      "content": "This is another tweemp",
+      "timestamp": "2024-11-21 12:00:00"
+    }
+  ]
+}
