@@ -6,7 +6,7 @@ export class TweempModel {
   private _author: AuthorModel;
   private _content: string;
   private _timestamp: Date;
-  private _favorite: boolean;
+  private _isFavourite: boolean;
 
   constructor(
     id: string,
@@ -19,7 +19,7 @@ export class TweempModel {
     this._author = author;
     this._content = content;
     this._timestamp = timestamp;
-    this._favorite = false;
+    this._isFavourite = false;
   }
 
   get id(): string {
@@ -62,11 +62,11 @@ export class TweempModel {
     this._timestamp = timestamp;
   }
 
-  get favorite(): boolean {
-    return this._favorite;
+  get isFavourite(): boolean {
+    return this._isFavourite;
   }
 
-  set favorite(favorite: boolean) {
-    this._favorite = favorite;
+  set isFavourite(favourite: boolean) {
+    this._isFavourite = favourite;
   }
 }

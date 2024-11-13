@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthorModel } from '../author/author.model';
 
 @Component({
   selector: 'tweempus-author-card',
@@ -8,4 +9,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './author-card.component.html',
   styleUrl: './author-card.component.css',
 })
-export class AuthorCardComponent {}
+export class AuthorCardComponent {
+  @Input({ required: true }) author!: AuthorModel;
+}

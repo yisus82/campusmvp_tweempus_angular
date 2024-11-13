@@ -6,7 +6,7 @@
       "password": "password1",
       "fullName": "John Doe",
       "image": "https://randomuser.me/api/portraits/men/1.jpg",
-      "favorites": ["c6646dc8-4920-474c-9b8f-957d5079f3a6"]
+      "favourites": ["c6646dc8-4920-474c-9b8f-957d5079f3a6"]
     },
     {
       "id": "bd60eacd-26b4-4464-bf92-74594cae39bd",
@@ -14,7 +14,7 @@
       "password": "password2",
       "fullName": "Jane Smith",
       "image": "https://randomuser.me/api/portraits/women/1.jpg",
-      "favorites": ["c6a35b6c-281e-46ee-827f-b55f908074de"]
+      "favourites": ["c6a35b6c-281e-46ee-827f-b55f908074de"]
     }
   ],
   "tweemps": [

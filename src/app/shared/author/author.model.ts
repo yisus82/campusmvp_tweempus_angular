@@ -3,12 +3,14 @@ export class AuthorModel {
   private _url: string;
   private _fullName: string;
   private _image: string;
+  private _favourites: string[];
 
   constructor(id: string) {
     this._id = id;
     this._url = `/profile/${id}`;
     this._fullName = 'Author';
     this._image = 'images/user-icon.png';
+    this._favourites = [];
   }
 
   get id(): string {
@@ -40,5 +42,13 @@ export class AuthorModel {
 
   set image(image: string) {
     this._image = image;
+  }
+
+  get favourites(): string[] {
+    return this._favourites;
+  }
+
+  set favourites(favourites: string[]) {
+    this._favourites = favourites;
   }
 }
