@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'tweempus-nav',
@@ -8,4 +9,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent {}
+export class NavComponent {
+  constructor(private authService: AuthService) {}
+
+  isAuthorLoggedIn() {
+    return this.authService.token !== null;
+  }
+}

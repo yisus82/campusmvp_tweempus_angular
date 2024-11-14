@@ -1,4 +1,8 @@
-<header>
+<header [class]="isAuthorLoggedIn() ? '' : 'center'">
   <a id="logo" routerLink="/"><img src="images/logo-top.png" alt="Application logo"></a>
-  <a id="register" routerLink="/register">Register</a>
+  @if (isAuthorLoggedIn()) {
+  <button (click)="logout()" title="Click here to log out">
+    <img id="avatar" src="{{getAuthorImage()}}" alt="Author avatar" />
+  </button>
+  }
 </header>

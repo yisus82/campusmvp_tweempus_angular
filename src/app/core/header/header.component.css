@@ -5,15 +5,25 @@ header {
   justify-content: space-between;
 }
 
+.center {
+  justify-content: center;
+}
+
 #logo img {
   width: 200px;
   margin-top: 1em;
   margin-left: 1em;
 }
 
-#register {
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#avatar {
+  width: 60px;
+  border-radius: 50%;
   margin-top: 1em;
   margin-right: 1em;
-  text-decoration: none;
-  color: black;
 }
