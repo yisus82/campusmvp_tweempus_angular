@@ -20,9 +20,33 @@ export class AuthorService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAuthor(authorId: string): Observable<AuthorModel> {
+  getAuthorById(authorId: string): Observable<AuthorModel> {
     return this.httpClient.get<DBAuthor>(`${this.url}/${authorId}`).pipe(
       map((dbAuthor: DBAuthor) => {
+        const author = new AuthorModel(dbAuthor.id);
+        author.fullName = dbAuthor.fullName;
+        author.image = dbAuthor.image;
+        author.favourites = dbAuthor.favourites;
+        return author;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  getAuthorByEmailAndPassword(
+    email: string,
+    password: string
+  ): Observable<AuthorModel> {
+    return this.httpClient.get<DBAuthor[]>(this.url).pipe(
+      map((dbAuthors: DBAuthor[]) => {
+        const dbAuthor = dbAuthors.find(
+          (author) => author.email === email && author.password === password
+        );
+
+        if (!dbAuthor) {
+          throw new Error('User not found');
+        }
+
         const author = new AuthorModel(dbAuthor.id);
         author.fullName = dbAuthor.fullName;
         author.image = dbAuthor.image;

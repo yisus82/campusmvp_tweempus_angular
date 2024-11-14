@@ -67,7 +67,7 @@ export class TweempService {
   }
 
   isFavourite(authorID: string, tweempID: string): Observable<boolean> {
-    return this.authorService.getAuthor(authorID).pipe(
+    return this.authorService.getAuthorById(authorID).pipe(
       map((author) => author.favourites.includes(tweempID)),
       catchError(this.handleError)
     );

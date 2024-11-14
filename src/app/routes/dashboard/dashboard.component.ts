@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
         concatMap((tweemp) =>
           combineLatest([
             of(tweemp),
-            this.authorService.getAuthor(tweemp.author.id),
+            this.authorService.getAuthorById(tweemp.author.id),
           ])
         ),
         concatMap(([tweemp, author]) => {

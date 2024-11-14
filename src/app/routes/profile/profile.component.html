@@ -1,8 +1,10 @@
 <main>
+  @if(author){
   <section>
     <tweempus-author-card [author]="author"></tweempus-author-card>
   </section>
   <section>
     <router-outlet></router-outlet>
   </section>
+  }
 </main>

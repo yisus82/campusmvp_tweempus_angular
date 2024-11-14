@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
 import { AuthorCardComponent } from '../../shared/author-card/author-card.component';
 import { AuthorModel } from '../../shared/author/author.model';
 import { AuthorService } from '../../shared/author/author.service';
@@ -12,13 +13,21 @@ import { AuthorService } from '../../shared/author/author.service';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit {
-  loggedAuthorId = '330e902d-6ed9-45de-b654-d3e4591c7538';
-  author: AuthorModel = new AuthorModel(this.loggedAuthorId);
+  author: AuthorModel | null = null;
 
-  constructor(private authorService: AuthorService) {}
+  constructor(
+    private authorService: AuthorService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.authorService.getAuthor(this.loggedAuthorId).subscribe({
+    const loggedAuthorId = this.authService.token?.authorId;
+
+    if (!loggedAuthorId) {
+      return;
+    }
+
+    this.authorService.getAuthorById(loggedAuthorId).subscribe({
       next: (author) => {
         this.author = author;
       },
