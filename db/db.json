@@ -6,7 +6,9 @@
       "password": "password1",
       "fullName": "John Doe",
       "image": "https://randomuser.me/api/portraits/men/1.jpg",
-      "favourites": ["c6646dc8-4920-474c-9b8f-957d5079f3a6"]
+      "favourites": [
+        "c6646dc8-4920-474c-9b8f-957d5079f3a6"
+      ]
     },
     {
       "id": "bd60eacd-26b4-4464-bf92-74594cae39bd",
@@ -14,7 +16,33 @@
       "password": "password2",
       "fullName": "Jane Smith",
       "image": "https://randomuser.me/api/portraits/women/1.jpg",
-      "favourites": ["c6a35b6c-281e-46ee-827f-b55f908074de"]
+      "favourites": [
+        "c6a35b6c-281e-46ee-827f-b55f908074de"
+      ]
+    },
+    {
+      "id": "e72ce7de-8b97-47e4-935e-19f36f7a7271",
+      "email": "djalma8@gmail.com",
+      "password": "12345678",
+      "fullName": "Prueba Nombre",
+      "image": "https://randomuser.me/api/portraits/men/12.jpg",
+      "favourites": []
+    },
+    {
+      "id": "cdc46b2b-be4d-4dfe-8923-f695224c3bd6",
+      "email": "prueba@gmail.com",
+      "password": "12345678",
+      "fullName": "Test User",
+      "image": "https://randomuser.me/api/portraits/women/21.jpg",
+      "favourites": []
+    },
+    {
+      "id": "37f454d1-ba52-4361-8e65-1f782f86e8cb",
+      "email": "yisus@gmail.com",
+      "password": "12345678",
+      "fullName": "Jesús Ángel Pérez-Roca Fernández",
+      "image": "images/user-icon.png",
+      "favourites": []
     }
   ],
   "tweemps": [

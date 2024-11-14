@@ -33,6 +33,25 @@ export class AuthorService {
     );
   }
 
+  getAuthorByEmail(email: string): Observable<AuthorModel> {
+    return this.httpClient.get<DBAuthor[]>(this.url).pipe(
+      map((dbAuthors: DBAuthor[]) => {
+        const dbAuthor = dbAuthors.find((author) => author.email === email);
+
+        if (!dbAuthor) {
+          throw new Error('User not found');
+        }
+
+        const author = new AuthorModel(dbAuthor.id);
+        author.fullName = dbAuthor.fullName;
+        author.image = dbAuthor.image;
+        author.favourites = dbAuthor.favourites;
+        return author;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   getAuthorByEmailAndPassword(
     email: string,
     password: string
@@ -70,6 +89,26 @@ export class AuthorService {
       ),
       catchError(this.handleError)
     );
+  }
+
+  setAuthor(
+    email: string,
+    password: string,
+    fullName: string,
+    image: string
+  ): Observable<DBAuthor> {
+    const dbAuthor: DBAuthor = {
+      id: crypto.randomUUID(),
+      email,
+      password,
+      fullName,
+      image: image || 'images/user-icon.png',
+      favourites: [],
+    };
+
+    return this.httpClient
+      .post<DBAuthor>(this.url, dbAuthor)
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: {

@@ -1,0 +1,50 @@
+<main>
+  <img src="images/logo-form.png" alt="Application logo">
+  <form [formGroup]="newUserForm" (ngSubmit)="register(newUserForm)">
+    <fieldset>
+      <label for="email">*Email</label>
+      <input type="email" formControlName="email" id="email" placeholder="Enter your email">
+      @if(newUserForm.get('email')?.hasError('required') && !newUserForm.get('email')?.pristine) {
+      <p class="error">Email is required</p>
+      }
+      @if(newUserForm.get('email')?.hasError('email') && !newUserForm.get('email')?.pristine) {
+      <p class="error">Email is invalid</p>
+      }
+      <label for="password">*Password</label>
+      <input type="password" formControlName="password" id="password" placeholder="Enter your password">
+      @if(newUserForm.get('password')?.hasError('required') && !newUserForm.get('password')?.pristine) {
+      <p class="error">Password is required</p>
+      }
+      @if(newUserForm.get('password')?.hasError('minlength') && !newUserForm.get('password')?.pristine) {
+      <p class="error">Password must be at least 8 characters</p>
+      }
+      <label for="confirmPassword">*Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm your password">
+      @if(newUserForm.get('confirmPassword')?.hasError('required') && !newUserForm.get('confirmPassword')?.pristine) {
+      <p class="error">Password is required</p>
+      }
+      @if(newUserForm.get('confirmPassword')?.hasError('minlength') && !newUserForm.get('confirmPassword')?.pristine) {
+      <p class="error">Password must be at least 8 characters</p>
+      }
+      @if(newUserForm.get('confirmPassword')?.hasError('mustMatch') && !newUserForm.get('confirmPassword')?.pristine) {
+      <p class="error">Passwords must match</p>
+      }
+      <label for="fullName">*Full Name</label>
+      <input type="text" formControlName="fullName" id="fullName" placeholder="Enter your full name">
+      @if(newUserForm.get('fullName')?.hasError('required') && !newUserForm.get('fullName')?.pristine) {
+      <p class="error">Full name is required</p>
+      }
+      <label for="image">Avatar</label>
+      <input type="text" formControlName="image" id="image" placeholder="Enter the URL of your avatar">
+      @if(newUserForm.get('image')?.hasError("invalidUrl") && !newUserForm.get('image')?.pristine) {
+      <p class="error">Invalid URL</p>
+      }
+      @if(userAlreadyExists) {
+      <p class="error">User already exists</p>
+      }
+      <p class="info"><strong>Note:</strong> All fields marked with * are required.</p>
+    </fieldset>
+    <button type="submit" [disabled]="newUserForm.invalid">Register</button>
+  </form>
+  <a routerLink="/login">Already have an account? Login</a>
+</main>

@@ -5,6 +5,7 @@ import { LoginComponent } from './routes/login/login.component';
 import { MyFavouritesComponent } from './routes/profile/my-favourites/my-favourites.component';
 import { MyTweempsComponent } from './routes/profile/my-tweemps/my-tweemps.component';
 import { ProfileComponent } from './routes/profile/profile.component';
+import { RegisterComponent } from './routes/register/register.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: 'profile',
     component: ProfileComponent,

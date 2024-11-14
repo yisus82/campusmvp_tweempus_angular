@@ -1,27 +1,28 @@
 <main>
-  <img src="images/logo-login.png" alt="Application logo" />
+  <img src="images/logo-form.png" alt="Application logo" />
   <form [formGroup]="userForm" (ngSubmit)="login(userForm)">
     <fieldset>
       <label for="email">Email</label>
       <input type="email" formControlName="email" id="email" placeholder="Enter your email">
       @if(userForm.get('email')?.hasError('required') && !userForm.get('email')?.pristine) {
-      <p class="error">Email is required.</p>
+      <p class="error">Email is required</p>
       }
       @if(userForm.get('email')?.hasError('email') && !userForm.get('email')?.pristine) {
-      <p class="error">Email is invalid.</p>
+      <p class="error">Email is invalid</p>
       }
       <label for="password">Password</label>
       <input type="password" formControlName="password" id="password" placeholder="Enter your password">
       @if(userForm.get('password')?.hasError('required') && !userForm.get('password')?.pristine) {
-      <p class="error">Password is required.</p>
+      <p class="error">Password is required</p>
       }
       @if(userForm.get('password')?.hasError('minlength') && !userForm.get('password')?.pristine) {
-      <p class="error">Password must be at least 8 characters.</p>
+      <p class="error">Password must be at least 8 characters</p>
       }
       @if(invalidCredentials) {
-      <p class="error">Invalid credentials.</p>
+      <p class="error">Invalid credentials</p>
       }
     </fieldset>
     <button type="submit" [disabled]="userForm.invalid">Login</button>
   </form>
+  <a routerLink="/register">Don't have an account yet? Create an account</a>
 </main>

@@ -51,6 +51,11 @@ input {
   font-size: 0.8em;
 }
 
+.info {
+  font-size: 0.8em;
+  text-align: left;
+}
+
 button {
   box-sizing: border-box;
   width: 30%;

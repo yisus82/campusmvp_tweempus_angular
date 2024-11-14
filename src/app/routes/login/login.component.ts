@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthorService } from '../../shared/author/author.service';
 
@@ -18,7 +19,7 @@ type UserForm = FormGroup<{
 @Component({
   selector: 'tweempus-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
