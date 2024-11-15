@@ -1,7 +1,7 @@
 <main>
   <div class="tweemps">
     @for (tweemp of tweemps; track tweemp.id) {
-    <tweempus-tweemp-card [tweemp]="tweemp"></tweempus-tweemp-card>
+    <tweempus-tweemp-card [tweemp]="tweemp" (favouritesChanged)="onFavouritesChanged()"></tweempus-tweemp-card>
     }
     @empty {
     <p>No tweemps to show</p>

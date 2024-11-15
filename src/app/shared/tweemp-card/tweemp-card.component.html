@@ -10,9 +10,9 @@
   <hr class="line">
   <div class="fav">
     @if (tweemp.isFavourite) {
-    <button class="icon icon-selected">🩷</button>
+    <button class="icon icon-selected" (click)="toggleFavourite()">🩷</button>
     } @else {
-    <button class="icon">🤍</button>
+    <button class="icon" (click)="toggleFavourite()">🤍</button>
     }
   </div>
 </section>

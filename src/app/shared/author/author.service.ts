@@ -12,6 +12,13 @@ interface DBAuthor {
   favourites: string[];
 }
 
+interface DBUpdateAuthor {
+  id: string;
+  fullName?: string;
+  image?: string;
+  favourites?: string[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -109,6 +116,46 @@ export class AuthorService {
     return this.httpClient
       .post<DBAuthor>(this.url, dbAuthor)
       .pipe(catchError(this.handleError));
+  }
+
+  updateAuthor({
+    authorId,
+    fullName,
+    image,
+    favourites,
+  }: {
+    authorId: string;
+    fullName: string;
+    image: string;
+    favourites: string[];
+  }): Observable<DBAuthor> {
+    const dbAuthor: DBUpdateAuthor = {
+      id: authorId,
+      fullName: fullName,
+      image: image,
+      favourites: favourites,
+    };
+
+    return this.httpClient
+      .patch<DBAuthor>(`${this.url}/${authorId}`, dbAuthor)
+      .pipe(catchError(this.handleError));
+  }
+
+  toggleFavourite(authorId: string, tweempId: string): Observable<DBAuthor> {
+    return this.httpClient.get<DBAuthor>(`${this.url}/${authorId}`).pipe(
+      map((dbAuthor: DBAuthor) => {
+        const index = dbAuthor.favourites.indexOf(tweempId);
+
+        if (index === -1) {
+          dbAuthor.favourites.push(tweempId);
+        } else {
+          dbAuthor.favourites.splice(index, 1);
+        }
+
+        return dbAuthor;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: {

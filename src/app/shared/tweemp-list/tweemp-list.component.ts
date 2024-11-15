@@ -11,4 +11,11 @@ import { TweempModel } from '../tweemp/tweemp.model';
 })
 export class TweempListComponent {
   @Input({ required: true }) tweemps!: TweempModel[];
+  @Input() watchFavourites = false;
+
+  onFavouritesChanged() {
+    if (this.watchFavourites) {
+      this.tweemps = this.tweemps.filter((tweemp) => tweemp.isFavourite);
+    }
+  }
 }
