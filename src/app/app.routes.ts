@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/auth/auth.guard';
+import { CreateTweempComponent } from './routes/create-tweemp/create-tweemp.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { LoginComponent } from './routes/login/login.component';
 import { MyFavouritesComponent } from './routes/profile/my-favourites/my-favourites.component';
@@ -35,6 +36,11 @@ export const routes: Routes = [
         component: MyFavouritesComponent,
       },
     ],
+  },
+  {
+    path: 'create-tweemp',
+    component: CreateTweempComponent,
+    canActivate: [authGuard],
   },
   { path: '**', redirectTo: '/' },
 ];

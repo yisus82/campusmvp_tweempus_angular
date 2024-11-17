@@ -40,6 +40,7 @@ section {
 .content {
   width: 90%;
   margin: 0 auto 2em;
+  white-space: pre;
 }
 
 .line {

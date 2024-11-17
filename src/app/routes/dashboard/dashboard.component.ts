@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { combineLatest, concatMap, of } from 'rxjs';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthorService } from '../../shared/author/author.service';
@@ -9,7 +10,7 @@ import { TweempService } from '../../shared/tweemp/tweemp.service';
 @Component({
   selector: 'tweempus-dashboard',
   standalone: true,
-  imports: [TweempListComponent],
+  imports: [TweempListComponent, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

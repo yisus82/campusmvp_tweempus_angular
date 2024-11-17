@@ -73,6 +73,19 @@ export class TweempService {
     );
   }
 
+  setTweemp(authorId: string, content: string): Observable<DBTweemp> {
+    const dbTweemp: DBTweemp = {
+      id: crypto.randomUUID(),
+      author: authorId,
+      content,
+      timestamp: new Date().toISOString(),
+    };
+
+    return this.httpClient
+      .post<DBTweemp>(this.url, dbTweemp)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: {
     message?: string;
     status?: string;

@@ -1,0 +1,21 @@
+<main>
+  <img src="images/logo-form.png" alt="Application logo">
+  <form [formGroup]="newTweempForm" (ngSubmit)="createTweemp(newTweempForm)">
+    <fieldset>
+      <label for="content">Content</label>
+      <textarea id="content" formControlName="content" placeholder="Enter at most 140 characters"></textarea>
+      @if(newTweempForm.get('content')?.value?.length) {
+      <p class="info">{{newTweempForm.get('content')?.value?.length}}/140 characters</p>
+      } @else {
+      <p class="info">0/140 characters</p>
+      }
+      @if(newTweempForm.get('content')?.hasError('required') && !newTweempForm.get('content')?.pristine) {
+      <p class="error">Content is required</p>
+      }
+      @if(newTweempForm.get('content')?.hasError('maxlength') && !newTweempForm.get('content')?.pristine) {
+      <p class="error">Content must be less at most 140 characters</p>
+      }
+    </fieldset>
+    <button type="submit" [disabled]="newTweempForm.invalid">Publish</button>
+  </form>
+</main>

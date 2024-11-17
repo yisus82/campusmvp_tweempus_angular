@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 import { AuthorCardComponent } from '../../shared/author-card/author-card.component';
 import { AuthorModel } from '../../shared/author/author.model';
@@ -8,7 +8,7 @@ import { AuthorService } from '../../shared/author/author.service';
 @Component({
   selector: 'tweempus-profile',
   standalone: true,
-  imports: [AuthorCardComponent, RouterOutlet],
+  imports: [AuthorCardComponent, RouterOutlet, RouterModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })

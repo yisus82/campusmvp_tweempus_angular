@@ -4,9 +4,7 @@
     <a [href]="tweemp.author.url">by {{tweemp.author.fullName}}</a>
     <div class="date">Published at {{tweemp.timestamp | date: 'dd/MM/yyyy HH:mm'}}</div>
   </div>
-  <div class="content">
-    {{tweemp.content}}
-  </div>
+  <div class="content">{{tweemp.content}}</div>
   <hr class="line">
   <div class="fav">
     @if (tweemp.isFavourite) {
