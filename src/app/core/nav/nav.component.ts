@@ -10,9 +10,11 @@ import { AuthService } from '../auth/auth.service';
   styleUrl: './nav.component.css',
 })
 export class NavComponent {
+  loggedAuthorId: string | null = null;
   constructor(private authService: AuthService) {}
 
   isAuthorLoggedIn() {
+    this.loggedAuthorId = this.authService.token?.authorId ?? null;
     return this.authService.token !== null;
   }
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { combineLatest, concatMap, of } from 'rxjs';
-import { AuthService } from '../../../core/auth/auth.service';
 import { AuthorService } from '../../../shared/author/author.service';
 import { TweempListComponent } from '../../../shared/tweemp-list/tweemp-list.component';
 import { TweempModel } from '../../../shared/tweemp/tweemp.model';
@@ -13,21 +13,15 @@ import { TweempService } from '../../../shared/tweemp/tweemp.service';
   templateUrl: './my-favourites.component.html',
   styleUrl: './my-favourites.component.css',
 })
-export class MyFavouritesComponent implements OnInit {
+export class MyFavouritesComponent {
   tweempsList: TweempModel[] = [];
 
   constructor(
+    private route: ActivatedRoute,
     private tweempService: TweempService,
-    private authorService: AuthorService,
-    private authService: AuthService
-  ) {}
-
-  ngOnInit() {
-    const loggedAuthorId = this.authService.token?.authorId;
-
-    if (!loggedAuthorId) {
-      return;
-    }
+    private authorService: AuthorService
+  ) {
+    const idAuthor = this.route.parent!.snapshot.params['id'];
 
     this.tweempService
       .getTweemps()
@@ -43,7 +37,7 @@ export class MyFavouritesComponent implements OnInit {
           tweemp.author = author;
           return combineLatest([
             of(tweemp),
-            this.tweempService.isFavourite(loggedAuthorId, tweemp.id),
+            this.tweempService.isFavourite(idAuthor, tweemp.id),
           ]);
         })
       )

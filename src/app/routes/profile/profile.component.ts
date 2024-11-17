@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { AuthService } from '../../core/auth/auth.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
+import { concatMap, map } from 'rxjs';
 import { AuthorCardComponent } from '../../shared/author-card/author-card.component';
 import { AuthorModel } from '../../shared/author/author.model';
 import { AuthorService } from '../../shared/author/author.service';
@@ -12,25 +12,20 @@ import { AuthorService } from '../../shared/author/author.service';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   author: AuthorModel | null = null;
 
   constructor(
-    private authorService: AuthorService,
-    private authService: AuthService
-  ) {}
-
-  ngOnInit() {
-    const loggedAuthorId = this.authService.token?.authorId;
-
-    if (!loggedAuthorId) {
-      return;
-    }
-
-    this.authorService.getAuthorById(loggedAuthorId).subscribe({
-      next: (author) => {
-        this.author = author;
-      },
-    });
+    private route: ActivatedRoute,
+    private authorService: AuthorService
+  ) {
+    this.route.params
+      .pipe(
+        map((params) => params['id']),
+        concatMap((id) => this.authorService.getAuthorById(id))
+      )
+      .subscribe({
+        next: (author) => (this.author = author),
+      });
   }
 }
