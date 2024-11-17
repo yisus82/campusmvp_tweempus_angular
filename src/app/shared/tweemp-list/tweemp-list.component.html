@@ -1,6 +1,6 @@
 <main>
   <div class="tweemps">
-    @for (tweemp of tweemps; track tweemp.id) {
+    @for (tweemp of tweemps | sortByDate; track tweemp.id) {
     <tweempus-tweemp-card [tweemp]="tweemp" (favouritesChanged)="onFavouritesChanged()"></tweempus-tweemp-card>
     }
     @empty {
